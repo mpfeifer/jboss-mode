@@ -3,28 +3,34 @@
 ;; -----------------------------------------------
 ;;
 
-(defun mp::goto-next-WARN ()
-  "Go to next line with level of warn or lower."
+(defun mp::goto-next-DEBUG ()
+  "Go to next line with level of debug or lower."  
   (interactive)
-  (re-search-forward "^[0-9:,]+ \\(TRACE\\|DEBUG\\|INFO\\|WARN\\)")
+  (re-search-forward "^[0-9:,]+ \\(DEBUG\\)")
   )
 
-(defun mp::goto-next-INFO ()
-  "Go to next line with level of warn or lower."
+(defun mp::goto-next-TRACE ()
+  "Go to next line with level of debug or lower."  
   (interactive)
-  (re-search-forward "^[0-9:,]+ \\(TRACE\\|DEBUG\\|INFO\\)")
+  (re-search-forward "^[0-9:,]+ \\(TRACE""\\)")
   )
 
 (defun mp::goto-next-ERROR ()
   "Go to next line with level of error or lower."  
   (interactive)
-  (re-search-forward "^[0-9:,]+ \\(TRACE\\|DEBUG\\|INFO\\|WARN\\|ERROR\\)")
+  (re-search-forward "^[0-9:,]+ \\(FATAL\\|ERROR\\)")
   )
 
-(defun mp::goto-next-DEBUG ()
-  "Go to next line with level of debug or lower."  
+(defun mp::goto-next-WARN ()
+  "Go to next line with level of warn or lower."
   (interactive)
-  (re-search-forward "^[0-9:,]+ \\(TRACE\\|DEBUG\\)")
+  (re-search-forward "^[0-9:,]+ \\(WARN\\|ERROR\\|FATAL\\)")
+  )
+
+(defun mp::goto-next-INFO ()
+  "Go to next line with level of warn or lower."
+  (interactive)
+  (re-search-forward "^[0-9:,]+ \\(INFO\\|WARN\\|ERROR\\|FATAL\\)")
   )
 
 (define-derived-mode jboss-mode read-only-mode "jboss"
